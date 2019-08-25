@@ -1,16 +1,5 @@
 db.auth('root', 'example')
 
-db.createUser({
-  user: 'telzir-api-user',
-  pwd: 'telzir-api-user',
-  roles: [
-    {
-      role: 'readWrite',
-      db: 'telzirapi',
-    },
-  ],
-});
-
 db = db.getSiblingDB('telzirapi')
 
 db.customers.insert(

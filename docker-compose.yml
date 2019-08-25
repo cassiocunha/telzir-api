@@ -3,7 +3,7 @@ services:
   mongo:
     image: mongo
     container_name: "telzir-mongo"
-    build: ./mongo
+    build: ./mongo-seed
     restart: "always"
     #volumes:
       #- ./.dbcache/mongo/data:/data/db
@@ -12,12 +12,18 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-      MONGO_INITDB_DATABASE: telzir
+      MONGO_INITDB_DATABASE: telzirapi
+      MONGODB_USER: telzir-api-user
+      MONGODB_DATABASE: telzirapi
+      MONGODB_PASS: telzir-api-user
     networks:
       - backend
   api:
     image: node:10.16-slim
     container_name: "telzir-api"
+    depends_on:
+      - mongo
+      - redis
     ports:
       - "3000:3000"
     working_dir: "/home/node/app"
