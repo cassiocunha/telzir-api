@@ -13,14 +13,12 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: telzirapi
-      MONGODB_USER: telzir-api-user
-      MONGODB_DATABASE: telzirapi
-      MONGODB_PASS: telzir-api-user
     networks:
       - backend
   api:
     image: node:10.16-slim
     container_name: "telzir-api"
+    restart: "always"
     depends_on:
       - mongo
       - redis
