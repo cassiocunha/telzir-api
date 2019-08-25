@@ -5,8 +5,8 @@ services:
     container_name: "telzir-mongo"
     build: ./mongo
     restart: "always"
-    volumes:
-      - ./.dbcache/mongo/data:/data/db
+    #volumes:
+      #- ./.dbcache/mongo/data:/data/db
     ports:
       - "27017:27017"
     environment:
@@ -23,7 +23,7 @@ services:
     working_dir: "/home/node/app"
     volumes:
       - ./:/home/node/app
-    command: "npm start"
+    command: bash -c "npm install && npm start"
     networks:
       - backend
 
