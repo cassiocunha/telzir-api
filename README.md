@@ -22,8 +22,8 @@ npm install && npm start
 ### Usuario da aplicação
 Para acessar a aplicação utilize:
 ```
-login: cassio1706@gmail.com
-senha: 12448712
+login: crac@gmail.com
+senha: 123456
 ```
 
 ## Testes unitários
